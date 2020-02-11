@@ -1,0 +1,12 @@
+{
+  "name": "@jinalshah999/gdgahmedabadlib",
+  "version": "0.0.1",
+  "schematics": "./schematics/collection.json",
+  "scripts": {
+    "schematics:build": "tsc -p tsconfig.schematics.json"
+  },
+  "peerDependencies": {
+    "@angular/common": "^8.2.14",
+    "@angular/core": "^8.2.14"
+  }
+}

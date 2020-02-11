@@ -1,0 +1,31 @@
+// #docregion template
+import { Injectable } from '@angular/core';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class <%= classify(name) %>Service {
+  constructor(private _http: HttpClient) { }
+  url:string='';
+  getAllData(){
+    return this._http.get(this.url);
+  }
+  getDataById(id:number){
+    return this._http.get(this.url+id);
+  }
+  addData(obj){
+      const body=JSON.stringify(obj);
+      const head=new HttpHeaders().set('Content-Type','application/json');
+      return this._http.post(this.url,body,{headers:head});
+  }
+  deleteData(obj){
+    const head=new HttpHeaders().set('Content-Type','application/json');
+    return this._http.delete(this.url+obj.id,{headers:head});
+  }
+  editData(obj){
+    const body=JSON.stringify(obj);
+    const head=new HttpHeaders().set('Content-Type','application/json');
+   return this._http.put(this.url+obj.id,body,{headers:head});
+  }
+}
